@@ -1,0 +1,17 @@
+job_specifications:
+- id: job12
+  tasks:
+  - docker_image: cr0615.azurecr.io/cr0615/qa:0.0.01beta
+    environment_variables:
+      PYTHONUNBUFFERED: 1
+    command: python /code/main.py quantity --job-id=42 --keyword="covid19" --question="Is covid19 man made " --num-papers=10
+    output_data:
+      azure_storage:
+        - storage_account_settings: mystorageaccount
+          remote_path: output/$AZ_BATCH_JOB_ID/$AZ_BATCH_TASK_ID
+          local_path: null
+          is_file_share: false
+          exclude:
+          - '*.tmp'
+          blobxfer_extra_options: null
+          condition: tasksuccess

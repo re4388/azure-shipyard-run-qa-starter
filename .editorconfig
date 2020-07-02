@@ -1,0 +1,10 @@
+[*.py]
+indent_style = space
+indent_size = 4
+
+[*.js]
+indent_style = space
+indent_size = 2
+
+
+# https://stackoverflow.com/questions/42118651/how-to-set-python-language-specific-tab-spacing-in-visual-studio-code
