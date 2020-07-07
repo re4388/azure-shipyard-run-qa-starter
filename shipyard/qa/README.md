@@ -60,3 +60,17 @@ $ docker run --rm -d \
 qacompute:0.1.01 \
 python main.py --job-id=1234 --keyword="covid19" --question="what is covid19???" –date-start="2020/04/01" –date-end="2020/06/01" date
 ```
+### Example 3: use azure shipyard
+```sh
+...
+-e ENV_RES_STORAGE="$AZ_BATCH_TASK_WORKING_DIR" \
+...
+```
+### Example 4: use CPU
+```sh
+$ docker run --rm -d \
+-e ENV_RES_STORAGE="/qadata/" \
+-e PYTHONUNBUFFERED=1 \
+qacompute:0.1.01 \
+python main.py --job-id=1234 --keyword="covid19" --question="what is covid19???" --num-papers=100 quantity
+```
